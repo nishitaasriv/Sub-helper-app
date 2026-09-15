@@ -1,29 +1,51 @@
-# Welcome to your Lovable project
+# SubTrack AI – Subscription Reminder and Cancellation Assistant
 
-This project was built with [Lovable](https://lovable.dev).
+## Problem statement
+People often forget free-trial expiry dates and recurring subscription payments, which can lead to unwanted charges and difficult cancellation journeys.
 
-## Build with Lovable
+## Proposed solution
+SubTrack AI is a beginner-friendly browser prototype for adding subscriptions, tracking renewal dates, estimating monthly and yearly costs, seeing in-app reminders, and following cancellation guidance.
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## Features
+- Dynamic dashboard with active subscriptions, monthly/yearly estimates, upcoming renewals, reminders, recent activity, and category spending.
+- Add, edit, search, filter, sort, and delete subscriptions.
+- Free-trial tracking and reminders for upcoming or ended trials.
+- Cancellation assistant with provider links and a step-by-step checklist.
+- Demo subscriptions on first launch: Netflix, Spotify, Canva, and Amazon Prime.
+- Responsive desktop, tablet, and mobile layout.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Technologies used
+- React
+- TanStack Router for page navigation
+- Tailwind CSS
+- Browser LocalStorage
+- Lucide React icons
 
-## Development
+## LocalStorage explanation
+All subscription records are saved under the `subtrack_subscriptions` LocalStorage key. The app reads this data when it opens and updates it immediately after additions, edits, and deletions. Data remains after refreshing in the same browser.
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
+## Installation
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
+```
+
+## Run instructions
+```sh
 npm run dev
 ```
 
-## Built with
+Then open the local development URL shown in the terminal.
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Limitations
+- No login system.
+- No external database.
+- No real email or push notifications.
+- No automatic cancellation.
+- Data is stored only in the current browser.
+- Reminder calculations use the current browser date and remain in-app only.
+
+## Future enhancements
+- Optional account sync across devices.
+- Calendar export and richer reminder preferences.
+- Provider-specific cancellation help content.
+- Spending trends and budget alerts.
