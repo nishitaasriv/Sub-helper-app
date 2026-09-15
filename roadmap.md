@@ -1,0 +1,3 @@
+- [ ] Replace the starter screen with the SubTrack AI responsive subscription tracker.
+- [ ] Add localStorage utilities, reusable UI pieces, and the four working pages.
+- [ ] Update app-wide styling, metadata, README, and validate core browser flows.
