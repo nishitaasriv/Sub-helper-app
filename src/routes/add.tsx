@@ -1,0 +1,8 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { AppShell, PageIntro } from "@/components/AppShell";
+import { SubscriptionForm } from "@/components/SubscriptionForm";
+import { readSubscriptions } from "@/lib/subscriptions";
+
+export const Route = createFileRoute("/add")({ validateSearch: (search) => ({ edit: typeof search.edit === "string" ? search.edit : undefined }), head: () => ({ meta: [{ title: "Add Subscription | SubTrack AI" }, { name: "description", content: "Add or edit a subscription and set renewal reminders." }, { property: "og:title", content: "Add Subscription | SubTrack AI" }, { property: "og:description", content: "Add or edit a subscription and set renewal reminders." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: AddSubscription });
+function AddSubscription() { const { edit } = Route.useSearch(); const [subscriptions, setSubscriptions] = useState([]); useEffect(() => setSubscriptions(readSubscriptions()), []); const subscription = subscriptions.find((item) => item.id === edit); return <AppShell subscriptions={subscriptions}><div className="mx-auto max-w-4xl px-4 py-7 sm:px-6"><PageIntro eyebrow={subscription ? "EDIT SUBSCRIPTION" : "NEW SUBSCRIPTION"} title={subscription ? "Update the details." : "Add a subscription."} description="Keep the important dates and cancellation path in one simple place." /><div className="mt-6 rounded-xl border border-border bg-surface p-5 sm:p-6"><SubscriptionForm subscription={subscription} /></div></div></AppShell>; }
